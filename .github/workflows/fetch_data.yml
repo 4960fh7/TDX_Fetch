@@ -33,31 +33,28 @@ jobs:
         git add data/
         git diff-index --quiet HEAD || (git commit -m "Automated data archive" && git push)
 
-    - name: Check Time and Loop
-      env:
-        # Standard GitHub tokens cannot trigger a loop, we must pass it explicitly
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-      run: |
-        # Get the current hour in Taiwan (UTC + 8)
-        # $(date -u +%H) gets UTC hour, add 8, modulo 24 to handle midnight wrap
-        UTC_HOUR=$(date -u +%H)
-        TW_HOUR=$(( (UTC_HOUR + 8) % 24 ))
-        TW_MINUTE=$(date +%M)
-        
-        echo "Current Taiwan Time is ${TW_HOUR}:${TW_MINUTE}"
-
-        # If it is outside our window (between 1:00 AM and 4:30 AM Taiwan time), stop the loop.
-        if [ $TW_HOUR -eq 1 ] || [ $TW_HOUR -eq 2 ] || [ $TW_HOUR -eq 3 ] || { [ $TW_HOUR -eq 4 ] && [ $TW_MINUTE -lt 30 ]; }; then
-          echo "Outside tracking hours (4:30 AM to 1:00 AM). Stopping loop for tonight."
-          exit 0
-        fi
-
-        echo "Waiting 5 minutes before launching next execution..."
-        sleep 300
-
-        echo "Triggering next run..."
-        curl -X POST \
-          -H "Authorization: token $GITHUB_TOKEN" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/${{ github.repository }}/dispatches \
-          -d '{"event_type": "trigger-next-run"}'
+    - name: Check Time and Loop Freely
+      if: always() # Ensures it evaluates even if a previous step had an issue
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const date = new Date();
+          // Adjust UTC to Taiwan Time (UTC+8)
+          const twHour = (date.getUTCHours() + 8) % 24;
+          const twMinute = date.getUTCMinutes();
+          
+          // Stop window: 1:00 AM to 4:30 AM
+          if (twHour === 1 || twHour === 2 || twHour === 3 || (twHour === 4 && twMinute < 30)) {
+            console.log("Outside active window. Ending loop cycle.");
+            return;
+          }
+          
+          console.log("Queueing next run in 5 minutes via repository dispatch...");
+          // This triggers a fresh run asynchronously so this runner can shut down immediately
+          setTimeout(async () => {
+            await github.rest.repos.createDispatchEvent({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              event_type: 'trigger-next-run'
+            });
+          }, 10);
