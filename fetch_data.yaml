@@ -1,0 +1,44 @@
+name: Fetch Live Data
+
+on:
+  schedule:
+    # Runs every 5 minutes from 00:00 to 16:55 UTC (8:00 AM to 12:55 AM Taiwan Time)
+    - cron: '*/5 0-16 * * *'
+    # Runs every 5 minutes from 20:30 to 23:55 UTC (4:30 AM to 7:55 AM Taiwan Time)
+    - cron: '30/5 20 * * *'
+    - cron: '*/5 21-23 * * *'
+  # Allows manual execution from the GitHub Actions UI tab
+  workflow_dispatch: 
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    # Only installing 'requests' since the rest are built-in standard modules
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Run script
+      run: python fetch.py # 👈 Replace with your actual script filename
+
+    - name: Commit and Push all new JSON files
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        
+        # This will stage all new timestamped JSON files regardless of where they are saved
+        git add data/
+        
+        # Commit and push only if new files were created
+        git diff-index --quiet HEAD || (git commit -m "Automated data archive: $(date)" && git push)
