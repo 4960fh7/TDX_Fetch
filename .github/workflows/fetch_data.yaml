@@ -2,13 +2,16 @@ name: Fetch Live Data
 
 on:
   schedule:
-    # Runs every 5 minutes from 00:00 to 16:55 UTC (8:00 AM to 12:55 AM Taiwan Time)
+    # 8:00 AM to 12:55 AM Taiwan Time (00:00 to 16:55 UTC)
     - cron: '*/5 0-16 * * *'
-    # Runs every 5 minutes from 20:30 to 23:55 UTC (4:30 AM to 7:55 AM Taiwan Time)
-    - cron: '30/5 20 * * *'
+    
+    # 4:30 AM to 4:55 AM Taiwan Time (20:30 to 20:55 UTC)
+    - cron: '30,35,40,45,50,55 20 * * *'
+    
+    # 5:00 AM to 7:55 AM Taiwan Time (21:00 to 23:55 UTC)
     - cron: '*/5 21-23 * * *'
-  # Allows manual execution from the GitHub Actions UI tab
-  workflow_dispatch: 
+
+  workflow_dispatch:
 
 jobs:
   run-script:
