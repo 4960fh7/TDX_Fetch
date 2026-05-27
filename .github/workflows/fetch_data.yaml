@@ -2,14 +2,8 @@ name: Fetch Live Data
 
 on:
   schedule:
-    # 8:00 AM to 12:55 AM Taiwan Time (00:00 to 16:55 UTC)
-    - cron: '*/5 0-16 * * *'
-    
-    # 4:30 AM to 4:55 AM Taiwan Time (20:30 to 20:55 UTC)
-    - cron: '30,35,40,45,50,55 20 * * *'
-    
-    # 5:00 AM to 7:55 AM Taiwan Time (21:00 to 23:55 UTC)
-    - cron: '*/5 21-23 * * *'
+    # Runs every 5 minutes from 20:30 UTC to 17:00 UTC next day (4:30 AM to 1:00 AM Taiwan Time)
+    - cron: '*/5 0-17,20-23 * * *'
 
   workflow_dispatch:
 
