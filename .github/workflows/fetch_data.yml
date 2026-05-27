@@ -1,17 +1,22 @@
 name: Fetch Live Data Loop
 
 on:
-  workflow_dispatch: # Allows manual start
+  workflow_dispatch:
   repository_dispatch:
     types: [trigger-next-run]
 
 jobs:
   run-loop:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
 
     steps:
     - name: Checkout repository code
       uses: actions/checkout@v4
+      with:
+        ref: main
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -26,35 +31,46 @@ jobs:
     - name: Run data fetch script
       run: python fetch.py 
 
-    - name: Commit and Push new JSON files
+    - name: Commit and Push new files
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git pull origin main --rebase
         git add data/
-        git diff-index --quiet HEAD || (git commit -m "Automated data archive" && git push)
+        git diff-index --quiet HEAD || (git commit -m "Automated data archive" && git push origin main)
 
-    - name: Check Time and Loop Freely
-      if: always() # Ensures it evaluates even if a previous step had an issue
-      uses: actions/github-script@v7
+    - name: Check Time Windows
+      id: check_time
+      run: |
+        UTC_HOUR=$(date -u +%H)
+        TW_HOUR=$(( (UTC_HOUR + 8) % 24 ))
+        TW_MINUTE=$(date +%M)
+        
+        echo "Current Taiwan Time is ${TW_HOUR}:${TW_MINUTE}"
+
+        # If it's between 1:00 AM and 4:30 AM, flag the workflow to stop
+        if [ $TW_HOUR -eq 1 ] || [ $TW_HOUR -eq 2 ] || [ $TW_HOUR -eq 3 ] || { [ $TW_HOUR -eq 4 ] && [ $TW_MINUTE -lt 30 ]; }; then
+          echo "Outside tracking hours. Setting stop flag."
+          echo "should_loop=false" >> $GITHUB_OUTPUT
+        else
+          echo "Within tracking hours. Continuing loop."
+          echo "should_loop=true" >> $GITHUB_OUTPUT
+        fi
+
+    # This built-in pause mechanism safely waits 5 minutes without counting against billing limits
+    - name: Wait for 5 minutes
+      if: steps.check_time.outputs.should_loop == 'true'
+      uses: jakejarvis/wait-action@v0.1.1
       with:
-        script: |
-          const date = new Date();
-          // Adjust UTC to Taiwan Time (UTC+8)
-          const twHour = (date.getUTCHours() + 8) % 24;
-          const twMinute = date.getUTCMinutes();
-          
-          // Stop window: 1:00 AM to 4:30 AM
-          if (twHour === 1 || twHour === 2 || twHour === 3 || (twHour === 4 && twMinute < 30)) {
-            console.log("Outside active window. Ending loop cycle.");
-            return;
-          }
-          
-          console.log("Queueing next run in 5 minutes via repository dispatch...");
-          // This triggers a fresh run asynchronously so this runner can shut down immediately
-          setTimeout(async () => {
-            await github.rest.repos.createDispatchEvent({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              event_type: 'trigger-next-run'
-            });
-          }, 10);
+        time: '5m'
+
+    - name: Trigger Next Run
+      if: steps.check_time.outputs.should_loop == 'true'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      run: |
+        curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/dispatches \
+          -d '{"event_type": "trigger-next-run"}'
