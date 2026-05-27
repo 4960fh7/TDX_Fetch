@@ -1,14 +1,12 @@
-name: Fetch Live Data
+name: Fetch Live Data Loop
 
 on:
-  schedule:
-    # Runs every 5 minutes from 20:30 UTC to 17:00 UTC next day (4:30 AM to 1:00 AM Taiwan Time)
-    - cron: '*/5 0-17,20-23 * * *'
-
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual start
+  repository_dispatch:
+    types: [trigger-next-run]
 
 jobs:
-  run-script:
+  run-loop:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,22 +18,46 @@ jobs:
       with:
         python-version: '3.10'
 
-    # Only installing 'requests' since the rest are built-in standard modules
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install requests
 
-    - name: Run script
-      run: python fetch.py # 👈 Replace with your actual script filename
+    - name: Run data fetch script
+      run: python fetch.py 
 
-    - name: Commit and Push all new JSON files
+    - name: Commit and Push new JSON files
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add *.json
+        git diff-index --quiet HEAD || (git commit -m "Automated data archive" && git push)
+
+    - name: Check Time and Loop
+      env:
+        # Standard GitHub tokens cannot trigger a loop, we must pass it explicitly
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      run: |
+        # Get the current hour in Taiwan (UTC + 8)
+        # $(date -u +%H) gets UTC hour, add 8, modulo 24 to handle midnight wrap
+        UTC_HOUR=$(date -u +%H)
+        TW_HOUR=$(( (UTC_HOUR + 8) % 24 ))
+        TW_MINUTE=$(date +%M)
         
-        # This will stage all new timestamped JSON files regardless of where they are saved
-        git add data/
-        
-        # Commit and push only if new files were created
-        git diff-index --quiet HEAD || (git commit -m "Automated data archive: $(date)" && git push)
+        echo "Current Taiwan Time is ${TW_HOUR}:${TW_MINUTE}"
+
+        # If it is outside our window (between 1:00 AM and 4:30 AM Taiwan time), stop the loop.
+        if [ $TW_HOUR -eq 1 ] || [ $TW_HOUR -eq 2 ] || [ $TW_HOUR -eq 3 ] || { [ $TW_HOUR -eq 4 ] && [ $TW_MINUTE -lt 30 ]; }; then
+          echo "Outside tracking hours (4:30 AM to 1:00 AM). Stopping loop for tonight."
+          exit 0
+        fi
+
+        echo "Waiting 5 minutes before launching next execution..."
+        sleep 300
+
+        echo "Triggering next run..."
+        curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/dispatches \
+          -d '{"event_type": "trigger-next-run"}'
