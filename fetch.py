@@ -5,7 +5,7 @@ import time
 from datetime import datetime, timezone, timedelta
 
 tw_tz = timezone(timedelta(hours=8))
-timestamp = datetime.now(tw_tz).strftime("%H%M")
+timestamp = datetime.now(tw_tz).strftime("%m%d%H%M")
 
 # --- 設定區 ---
 CLIENT_ID = 'b11901018-81457f6f-e1ce-47fa'
