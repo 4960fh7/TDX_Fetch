@@ -1,16 +1,15 @@
 name: Fetch Live Data Loop
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual testing
   repository_dispatch:
-    types: [trigger-next-run]
+    types: [trigger-next-run] # Wakes up when cron-job.org pings it
 
 jobs:
   run-loop:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      actions: write
 
     steps:
     - name: Checkout repository code
@@ -38,39 +37,3 @@ jobs:
         git pull origin main --rebase
         git add data/
         git diff-index --quiet HEAD || (git commit -m "Automated data archive" && git push origin main)
-
-    - name: Check Time Windows
-      id: check_time
-      run: |
-        UTC_HOUR=$(date -u +%H)
-        TW_HOUR=$(( (UTC_HOUR + 8) % 24 ))
-        TW_MINUTE=$(date +%M)
-        
-        echo "Current Taiwan Time is ${TW_HOUR}:${TW_MINUTE}"
-
-        # If it's between 1:00 AM and 4:30 AM, flag the workflow to stop
-        if [ $TW_HOUR -eq 1 ] || [ $TW_HOUR -eq 2 ] || [ $TW_HOUR -eq 3 ] || { [ $TW_HOUR -eq 4 ] && [ $TW_MINUTE -lt 30 ]; }; then
-          echo "Outside tracking hours. Setting stop flag."
-          echo "should_loop=false" >> $GITHUB_OUTPUT
-        else
-          echo "Within tracking hours. Continuing loop."
-          echo "should_loop=true" >> $GITHUB_OUTPUT
-        fi
-
-    # This built-in pause mechanism safely waits 5 minutes without counting against billing limits
-    - name: Wait for 5 minutes
-      if: steps.check_time.outputs.should_loop == 'true'
-      uses: jakejarvis/wait-action@v0.1.1
-      with:
-        time: '5m'
-
-    - name: Trigger Next Run
-      if: steps.check_time.outputs.should_loop == 'true'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-      run: |
-        curl -X POST \
-          -H "Authorization: token $GITHUB_TOKEN" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/${{ github.repository }}/dispatches \
-          -d '{"event_type": "trigger-next-run"}'
