@@ -34,17 +34,6 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        
+        git pull origin main --rebase
         git add data/
-        
-        if [ -f "token_cache.json" ]; then
-          git add token_cache.json
-        fi
-        
-        if ! git diff-index --quiet HEAD; then
-          git commit -m "Automated data archive (and token update if expired)"
-          git pull origin main --rebase
-          git push origin main
-        else
-          echo "No changes in data or token. Skipping commit."
-        fi
+        git diff-index --quiet HEAD || (git commit -m "Automated data archive" && git push origin main)
