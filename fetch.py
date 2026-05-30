@@ -10,7 +10,7 @@ timestamp = datetime.now(tw_tz).strftime("%m%d%H%M")
 # --- 設定區 ---
 CLIENT_ID = 'b11901018-81457f6f-e1ce-47fa'
 CLIENT_SECRET = 'c8e6a43e-6a54-407f-911f-8c7a69070aee'
-TOKEN_CACHE_FILE = 'tdx_token.json'  # 暫存 Token 的檔案
+TOKEN_CACHE_FILE = 'data/tdx_token.json'  # 暫存 Token 的檔案
 
 def get_valid_token():
     """取得有效的 Token（優先從暫存讀取，過期才重新申請）"""
