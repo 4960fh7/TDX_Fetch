@@ -34,6 +34,13 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git pull origin main --rebase
+        
         git add data/
-        git diff-index --quiet HEAD || (git commit -m "Automated data archive" && git push origin main)
+        
+        if ! git diff-index --quiet HEAD; then
+          git commit -m "Automated data archive"
+          git pull origin main --rebase
+          git push origin main
+        else
+          echo "No changes detected. Skipping commit and push."
+        fi
