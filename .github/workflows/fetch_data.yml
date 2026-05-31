@@ -34,18 +34,11 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        
-        # 1. Stage the files first so Git knows about them
         git add data/
-        
-        # 2. Check if there are actually changes to commit
         if ! git diff-index --quiet HEAD; then
-          # 3. Pull latest changes, stashing your local staged changes automatically if needed
           git pull origin main --rebase --autostash
-          
-          # 4. Commit and push
           git commit -m "Automated data archive"
           git push origin main
         else
-          echo "No changes detected, skipping commit."
+          echo "No new data or overwrites detected."
         fi
