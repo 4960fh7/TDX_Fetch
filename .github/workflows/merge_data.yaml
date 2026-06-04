@@ -35,6 +35,8 @@ jobs:
 
     # 4. Push changes back to GitHub
     # This stages the newly created json file and registers deleted data files
+    # 4. Push changes back to GitHub
+    # This stages the newly created json file and registers deleted data files
     - name: Commit and Push changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -46,5 +48,5 @@ jobs:
           git commit -m "Automated: Merge train data and cleanup source files"
           git push
         else
-          print "No changes detected. Skipping commit."
+          echo "No changes detected. Skipping commit."
         fi
