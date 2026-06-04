@@ -17,7 +17,7 @@ def merge_train_data(input_folder="data/", output_file_pattern="merged_train_dat
     try:
         # Assumes current year context to parse MMDD correctly
         current_year = datetime.now().year
-        target_dt = datetime.strptime(f"{current_year}{target_date}", "%Y%m%dd")
+        target_dt = datetime.strptime(f"{current_year}{target_date}", "%Y%m%d")
         next_dt = target_dt + timedelta(days=1)
         next_day_str = next_dt.strftime("%m%d")
     except ValueError:
