@@ -1,0 +1,50 @@
+name: Run Train Data Merger
+
+on:
+  schedule:
+    # Runs automatically every day at 02:00 AM UTC (adjust to your preferred time)
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allows you to manually trigger this from the GitHub Actions UI tab
+    inputs:
+      manual_date:
+        description: 'Target Date to merge (MMDD) - Leave blank for 2 days ago'
+        required: false
+        default: ''
+
+jobs:
+  merge-and-commit:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # 1. Check out your repository code
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. Set up Python environment
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-python: '3.x'
+
+    # 3. Execute the Python processing script
+    # It passes the manual input if provided, otherwise the script calculates 2 days ago.
+    - name: Run data merge script
+      run: |
+        python merge_data.py "${{ github.event.inputs.manual_date }}"
+
+    # 4. Push changes back to GitHub
+    # This stages the newly created json file and registers deleted data files
+    - name: Commit and Push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        # Check if there are any updates to commit (prevents crashing if no files were found)
+        if [ -n "$(git status --porcelain)" ]; then
+          git add .
+          git commit -m "Automated: Merge train data and cleanup source files"
+          git push
+        else
+          print "No changes detected. Skipping commit."
+        fi
