@@ -3,7 +3,7 @@ name: Run Train Data Merger
 on:
   schedule:
     # Runs automatically every day at 02:00 AM UTC (adjust to your preferred time)
-    - cron: '0 2 * * *'
+    - cron: '0 18 * * *'
   workflow_dispatch:
     # Allows you to manually trigger this from the GitHub Actions UI tab
     inputs:
