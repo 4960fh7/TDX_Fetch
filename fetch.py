@@ -8,8 +8,8 @@ tw_tz = timezone(timedelta(hours=8))
 timestamp = datetime.now(tw_tz).strftime("%m%d%H%M")
 
 # --- 設定區 ---
-CLIENT_ID = 'b11901026-f3bbec04-de72-4c11'
-CLIENT_SECRET = 'd113ed15-537c-4955-817e-439a3be826d7'
+CLIENT_ID = 'b11901018-81457f6f-e1ce-47fa'
+CLIENT_SECRET = 'c8e6a43e-6a54-407f-911f-8c7a69070aee'
 TOKEN_CACHE_FILE = 'data/tdx_token.json'  # 暫存 Token 的檔案
 
 def get_valid_token():
