@@ -1,0 +1,791 @@
+{
+    "UpdateTime": "2026-07-11T14:30:06+08:00",
+    "UpdateInterval": 30,
+    "SrcUpdateTime": "2026-07-11T14:30:00+08:00",
+    "SrcUpdateInterval": 60,
+    "AuthorityCode": "TRA",
+    "TrainLiveBoards": [
+        {
+            "TrainNo": "3211",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4120",
+            "StationName": {
+                "Zh_tw": "新營",
+                "En": "Xinying"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 1,
+            "UpdateTime": "2026-07-11T14:29:55+08:00"
+        },
+        {
+            "TrainNo": "3202",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4200",
+            "StationName": {
+                "Zh_tw": "永康",
+                "En": "Yongkang"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 1,
+            "UpdateTime": "2026-07-11T14:29:55+08:00"
+        },
+        {
+            "TrainNo": "3202",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4200",
+            "StationName": {
+                "Zh_tw": "永康",
+                "En": "Yongkang"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:55+08:00"
+        },
+        {
+            "TrainNo": "2173",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "3410",
+            "StationName": {
+                "Zh_tw": "社頭",
+                "En": "Shetou"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 18,
+            "UpdateTime": "2026-07-11T14:29:55+08:00"
+        },
+        {
+            "TrainNo": "3067",
+            "TrainTypeID": "1132",
+            "TrainTypeCode": "10",
+            "TrainTypeName": {
+                "Zh_tw": "區間快",
+                "En": "Fast Local Train"
+            },
+            "StationID": "4440",
+            "StationName": {
+                "Zh_tw": "鳳山",
+                "En": "Fongshan"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:49+08:00"
+        },
+        {
+            "TrainNo": "2204",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "3340",
+            "StationName": {
+                "Zh_tw": "新烏日",
+                "En": "Xinwuri"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:47+08:00"
+        },
+        {
+            "TrainNo": "3198",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4140",
+            "StationName": {
+                "Zh_tw": "林鳳營",
+                "En": "Linfengying"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:47+08:00"
+        },
+        {
+            "TrainNo": "4534",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "6140",
+            "StationName": {
+                "Zh_tw": "富源",
+                "En": "Fuyuan"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:43+08:00"
+        },
+        {
+            "TrainNo": "441",
+            "TrainTypeID": "110G",
+            "TrainTypeCode": "11",
+            "TrainTypeName": {
+                "Zh_tw": "自強(3000)",
+                "En": "Tze-Chiang 3000 Express "
+            },
+            "StationID": "4340",
+            "StationName": {
+                "Zh_tw": "新左營",
+                "En": "Xinzuoying"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:41+08:00"
+        },
+        {
+            "TrainNo": "3192",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4100",
+            "StationName": {
+                "Zh_tw": "南靖",
+                "En": "Nanjing"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:35+08:00"
+        },
+        {
+            "TrainNo": "3197",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4310",
+            "StationName": {
+                "Zh_tw": "岡山",
+                "En": "Gangshan"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:25+08:00"
+        },
+        {
+            "TrainNo": "3745",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4200",
+            "StationName": {
+                "Zh_tw": "永康",
+                "En": "Yongkang"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:23+08:00"
+        },
+        {
+            "TrainNo": "386",
+            "TrainTypeID": "1108",
+            "TrainTypeCode": "3",
+            "TrainTypeName": {
+                "Zh_tw": "自強",
+                "En": "Tze-Chiang Express"
+            },
+            "StationID": "6000",
+            "StationName": {
+                "Zh_tw": "臺東",
+                "En": "Taitung"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:01+08:00"
+        },
+        {
+            "TrainNo": "168",
+            "TrainTypeID": "1108",
+            "TrainTypeCode": "3",
+            "TrainTypeName": {
+                "Zh_tw": "自強",
+                "En": "Tze-Chiang Express"
+            },
+            "StationID": "6000",
+            "StationName": {
+                "Zh_tw": "臺東",
+                "En": "Taitung"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:29:01+08:00"
+        },
+        {
+            "TrainNo": "727",
+            "TrainTypeID": "1110",
+            "TrainTypeCode": "4",
+            "TrainTypeName": {
+                "Zh_tw": "莒光",
+                "En": "Chu-Kuang Express"
+            },
+            "StationID": "5230",
+            "StationName": {
+                "Zh_tw": "知本",
+                "En": "Zhiben"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 5,
+            "UpdateTime": "2026-07-11T14:28:53+08:00"
+        },
+        {
+            "TrainNo": "3010",
+            "TrainTypeID": "1132",
+            "TrainTypeCode": "10",
+            "TrainTypeName": {
+                "Zh_tw": "區間快",
+                "En": "Fast Local Train"
+            },
+            "StationID": "3470",
+            "StationName": {
+                "Zh_tw": "斗六",
+                "En": "Douliu"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:51+08:00"
+        },
+        {
+            "TrainNo": "3207",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4150",
+            "StationName": {
+                "Zh_tw": "隆田",
+                "En": "Longtian"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:51+08:00"
+        },
+        {
+            "TrainNo": "3208",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4310",
+            "StationName": {
+                "Zh_tw": "岡山",
+                "En": "Gangshan"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:51+08:00"
+        },
+        {
+            "TrainNo": "2183",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "3300",
+            "StationName": {
+                "Zh_tw": "臺中",
+                "En": "Taichung"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:43+08:00"
+        },
+        {
+            "TrainNo": "4038",
+            "TrainTypeID": "1132",
+            "TrainTypeCode": "10",
+            "TrainTypeName": {
+                "Zh_tw": "區間快",
+                "En": "Fast Local Train"
+            },
+            "StationID": "6220",
+            "StationName": {
+                "Zh_tw": "壽豐",
+                "En": "Shoufeng"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:41+08:00"
+        },
+        {
+            "TrainNo": "2224",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4080",
+            "StationName": {
+                "Zh_tw": "嘉義",
+                "En": "Chiayi"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 1,
+            "UpdateTime": "2026-07-11T14:28:39+08:00"
+        },
+        {
+            "TrainNo": "3178",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "3410",
+            "StationName": {
+                "Zh_tw": "社頭",
+                "En": "Shetou"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:29+08:00"
+        },
+        {
+            "TrainNo": "3742",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4272",
+            "StationName": {
+                "Zh_tw": "沙崙",
+                "En": "Shalun"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:27+08:00"
+        },
+        {
+            "TrainNo": "410",
+            "TrainTypeID": "110H",
+            "TrainTypeCode": "11",
+            "TrainTypeName": {
+                "Zh_tw": "自強(3000)",
+                "En": "Tze-Chiang 3000 Express "
+            },
+            "StationID": "5050",
+            "StationName": {
+                "Zh_tw": "潮州",
+                "En": "Chaozhou"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 9,
+            "UpdateTime": "2026-07-11T14:28:21+08:00"
+        },
+        {
+            "TrainNo": "1038",
+            "TrainTypeID": "1132",
+            "TrainTypeCode": "10",
+            "TrainTypeName": {
+                "Zh_tw": "區間快",
+                "En": "Fast Local Train"
+            },
+            "StationID": "5050",
+            "StationName": {
+                "Zh_tw": "潮州",
+                "En": "Chaozhou"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:21+08:00"
+        },
+        {
+            "TrainNo": "3228",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "5050",
+            "StationName": {
+                "Zh_tw": "潮州",
+                "En": "Chaozhou"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:21+08:00"
+        },
+        {
+            "TrainNo": "3743",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4190",
+            "StationName": {
+                "Zh_tw": "新市",
+                "En": "Xinshi"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:28:13+08:00"
+        },
+        {
+            "TrainNo": "3222",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "5000",
+            "StationName": {
+                "Zh_tw": "屏東",
+                "En": "Pingtung"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:27:47+08:00"
+        },
+        {
+            "TrainNo": "3237",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "3220",
+            "StationName": {
+                "Zh_tw": "后里",
+                "En": "Houli"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 1,
+            "UpdateTime": "2026-07-11T14:27:33+08:00"
+        },
+        {
+            "TrainNo": "3029",
+            "TrainTypeID": "1132",
+            "TrainTypeCode": "10",
+            "TrainTypeName": {
+                "Zh_tw": "區間快",
+                "En": "Fast Local Train"
+            },
+            "StationID": "3230",
+            "StationName": {
+                "Zh_tw": "豐原",
+                "En": "Fengyuan"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:27:31+08:00"
+        },
+        {
+            "TrainNo": "2614",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "3280",
+            "StationName": {
+                "Zh_tw": "太原",
+                "En": "Taiyuan"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:27:05+08:00"
+        },
+        {
+            "TrainNo": "2214",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "3430",
+            "StationName": {
+                "Zh_tw": "二水",
+                "En": "Ershui"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:27:05+08:00"
+        },
+        {
+            "TrainNo": "3201",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4220",
+            "StationName": {
+                "Zh_tw": "臺南",
+                "En": "Tainan"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:27:05+08:00"
+        },
+        {
+            "TrainNo": "3217",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "3430",
+            "StationName": {
+                "Zh_tw": "二水",
+                "En": "Ershui"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 32,
+            "UpdateTime": "2026-07-11T14:26:57+08:00"
+        },
+        {
+            "TrainNo": "3074",
+            "TrainTypeID": "1132",
+            "TrainTypeCode": "10",
+            "TrainTypeName": {
+                "Zh_tw": "區間快",
+                "En": "Fast Local Train"
+            },
+            "StationID": "5070",
+            "StationName": {
+                "Zh_tw": "南州",
+                "En": "Nanzhou"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 1,
+            "UpdateTime": "2026-07-11T14:26:43+08:00"
+        },
+        {
+            "TrainNo": "3212",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4400",
+            "StationName": {
+                "Zh_tw": "高雄",
+                "En": "Kaohsiung"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 2,
+            "UpdateTime": "2026-07-11T14:25:13+08:00"
+        },
+        {
+            "TrainNo": "3191",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4370",
+            "StationName": {
+                "Zh_tw": "美術館",
+                "En": "Museum of Fine Arts"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:25:03+08:00"
+        },
+        {
+            "TrainNo": "3218",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4460",
+            "StationName": {
+                "Zh_tw": "九曲堂",
+                "En": "Jiuqutang"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:25:01+08:00"
+        },
+        {
+            "TrainNo": "3187",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4440",
+            "StationName": {
+                "Zh_tw": "鳳山",
+                "En": "Fongshan"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:24:47+08:00"
+        },
+        {
+            "TrainNo": "3063",
+            "TrainTypeID": "1132",
+            "TrainTypeCode": "10",
+            "TrainTypeName": {
+                "Zh_tw": "區間快",
+                "En": "Fast Local Train"
+            },
+            "StationID": "5070",
+            "StationName": {
+                "Zh_tw": "南州",
+                "En": "Nanzhou"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 11,
+            "UpdateTime": "2026-07-11T14:24:39+08:00"
+        },
+        {
+            "TrainNo": "3188",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4050",
+            "StationName": {
+                "Zh_tw": "大林",
+                "En": "Dalin"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:24:39+08:00"
+        },
+        {
+            "TrainNo": "4537",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "6000",
+            "StationName": {
+                "Zh_tw": "臺東",
+                "En": "Taitung"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:24:11+08:00"
+        },
+        {
+            "TrainNo": "314",
+            "TrainTypeID": "110G",
+            "TrainTypeCode": "11",
+            "TrainTypeName": {
+                "Zh_tw": "自強(3000)",
+                "En": "Tze-Chiang 3000 Express "
+            },
+            "StationID": "5190",
+            "StationName": {
+                "Zh_tw": "大武",
+                "En": "Dawu"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:23:15+08:00"
+        },
+        {
+            "TrainNo": "3741",
+            "TrainTypeID": "1131",
+            "TrainTypeCode": "6",
+            "TrainTypeName": {
+                "Zh_tw": "區間",
+                "En": "Local Train"
+            },
+            "StationID": "4270",
+            "StationName": {
+                "Zh_tw": "中洲",
+                "En": "Zhongzhou"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:22:59+08:00"
+        },
+        {
+            "TrainNo": "431",
+            "TrainTypeID": "110G",
+            "TrainTypeCode": "11",
+            "TrainTypeName": {
+                "Zh_tw": "自強(3000)",
+                "En": "Tze-Chiang 3000 Express "
+            },
+            "StationID": "5190",
+            "StationName": {
+                "Zh_tw": "大武",
+                "En": "Dawu"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T14:22:27+08:00"
+        },
+        {
+            "TrainNo": "1",
+            "TrainTypeID": "1106",
+            "TrainTypeCode": "3",
+            "TrainTypeName": {
+                "Zh_tw": "自強",
+                "En": "Tze-Chiang Express"
+            },
+            "StationID": "7110",
+            "StationName": {
+                "Zh_tw": "永樂",
+                "En": "Yongle"
+            },
+            "TrainStationStatus": 2,
+            "DelayTime": 0,
+            "UpdateTime": "2026-07-11T06:20:46+08:00"
+        }
+    ]
+}
