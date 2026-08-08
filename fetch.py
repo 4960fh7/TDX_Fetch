@@ -7,9 +7,13 @@ from datetime import datetime, timezone, timedelta
 tw_tz = timezone(timedelta(hours=8))
 timestamp = datetime.now(tw_tz).strftime("%m%d%H%M")
 
-# --- 設定區 ---
-CLIENT_ID = 'b11901026-f3bbec04-de72-4c11'
-CLIENT_SECRET = 'd113ed15-537c-4955-817e-439a3be826d7'
+current_day = datetime.now().day
+if current_day >= 15:
+    CLIENT_ID = os.environ.get("CLIENT_ID_1")
+    CLIENT_SECRET = os.environ.get("CLIENT_SECRET_1")
+else:
+    CLIENT_ID = os.environ.get("CLIENT_ID_2")
+    CLIENT_SECRET = os.environ.get("CLIENT_SECRET_2")
 TOKEN_CACHE_FILE = 'data/tdx_token.json'  # 暫存 Token 的檔案
 
 def get_valid_token():
