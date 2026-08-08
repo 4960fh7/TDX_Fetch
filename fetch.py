@@ -7,7 +7,7 @@ from datetime import datetime, timezone, timedelta
 tw_tz = timezone(timedelta(hours=8))
 timestamp = datetime.now(tw_tz).strftime("%m%d%H%M")
 
-current_day = datetime.now().day
+current_day = datetime.now(tw_tz).day
 if current_day >= 15:
     CLIENT_ID = os.environ.get("CLIENT_ID_1")
     CLIENT_SECRET = os.environ.get("CLIENT_SECRET_1")
