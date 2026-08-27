@@ -113,9 +113,9 @@ if __name__ == "__main__":
         user_date = sys.argv[1].strip()
         print(f"Using manual target date: {user_date}")
     else:
-        two_days_ago = datetime.now() - timedelta(days=2)
-        user_date = two_days_ago.strftime("%m%d")
-        print(f"No date provided. Defaulting to 2 days ago: {user_date}")
+        yesterday = datetime.now() - timedelta(days=1)
+        user_date = yesterday.strftime("%m%d")
+        print(f"No date provided. Defaulting to yesterday: {user_date}")
     
     merge_train_data(
         input_folder="data/", 
